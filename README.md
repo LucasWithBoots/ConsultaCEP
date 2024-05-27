@@ -7,3 +7,5 @@ postais brasileiros (CEP).
 
 - Buscar detalhes de endereço utilizando um CEP brasileiro.
 - Interface simples e intuitiva.
+
+![](https://i.imgur.com/SwcjMLI.png)
