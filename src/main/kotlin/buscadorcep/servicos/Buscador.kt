@@ -10,6 +10,8 @@ import java.util.*
 
 class Buscador(private val entrada: Scanner) {
 
+    val listaCeps = mutableListOf<Endereco>()
+
     private fun buscaCep(cep: String): String? {
         val endereco = "https://viacep.com.br/ws/$cep/json/"
 
@@ -27,12 +29,15 @@ class Buscador(private val entrada: Scanner) {
     }
 
     fun jsonParaClassEndereco(cep: String) {
+
         runCatching {
             val json = buscaCep(cep)
             val gson = Gson()
             gson.fromJson(json, Endereco::class.java)
         }.onSuccess { enderecoObjeto ->
             println("Dados carregados!\n")
+
+            listaCeps.add(enderecoObjeto)
 
             println(
                 "Logradouro: ${enderecoObjeto.logradouro}\n" +
@@ -49,6 +54,13 @@ class Buscador(private val entrada: Scanner) {
 
         }.onFailure { ex ->
             println("Erro ao buscar ou converter o CEP: ${ex.message}")
+        }
+    }
+
+    fun exibirCepsBuscados() {
+        println("\nCEPs válidos buscados:")
+        listaCeps.forEach {
+            println("${it.cep}")
         }
     }
 }
