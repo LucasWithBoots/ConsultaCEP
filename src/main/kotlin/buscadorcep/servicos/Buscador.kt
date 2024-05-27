@@ -10,7 +10,7 @@ import java.util.*
 
 class Buscador(private val entrada: Scanner) {
 
-    val listaCeps = mutableListOf<Endereco>()
+    private val listaCeps = mutableListOf<Endereco>()
 
     private fun buscaCep(cep: String): String? {
         val endereco = "https://viacep.com.br/ws/$cep/json/"
