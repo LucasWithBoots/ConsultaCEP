@@ -1,6 +1,6 @@
 package buscadorcep.principal
 
-import buscadorcep.servicos.buscador
+import buscadorcep.servicos.Buscador
 import java.util.Scanner
 
 fun main() {
@@ -9,7 +9,7 @@ fun main() {
     println("Digite o seu CEP: ")
     val cepParaBuscar = entrada.nextLine()
 
-    val buscador = buscador()
+    val buscador = Buscador(entrada)
     buscador.jsonParaClassEndereco(cepParaBuscar)
 
 }

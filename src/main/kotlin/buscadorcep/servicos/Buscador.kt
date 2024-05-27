@@ -5,11 +5,12 @@ import java.net.URI
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse.BodyHandlers
+import java.util.*
 
 
-class buscador {
+class Buscador(private val entrada: Scanner) {
 
-    fun buscaCep(cep: String): String? {
+    private fun buscaCep(cep: String): String? {
         val endereco = "https://viacep.com.br/ws/$cep/json/"
 
         val client: HttpClient = HttpClient.newHttpClient()
@@ -29,9 +30,23 @@ class buscador {
         runCatching {
             val json = buscaCep(cep)
             val gson = Gson()
-            gson.fromJson(json, endereco::class.java)
+            gson.fromJson(json, Endereco::class.java)
         }.onSuccess { enderecoObjeto ->
-            println(enderecoObjeto)
+            println("Dados carregados!\n")
+
+            println(
+                "Logradouro: ${enderecoObjeto.logradouro}\n" +
+                        "Bairro: ${enderecoObjeto.bairro}\n" +
+                        "Uf: ${enderecoObjeto.uf}"
+            )
+
+            println("\nDeseja ver todas as informações? S/N")
+            if (entrada.nextLine().equals("s", true)) {
+                println(enderecoObjeto)
+            }
+
+            println("\nFinalizado com sucesso!")
+
         }.onFailure { ex ->
             println("Erro ao buscar ou converter o CEP: ${ex.message}")
         }
