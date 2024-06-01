@@ -13,6 +13,8 @@ class Buscador(private val entrada: Scanner) {
     private val listaCeps = mutableListOf<Endereco>()
 
     private fun buscaCep(cep: String): String? {
+        cep.formatacaoPadrao()
+
         val endereco = "https://viacep.com.br/ws/$cep/json/"
 
         val client: HttpClient = HttpClient.newHttpClient()
@@ -59,7 +61,8 @@ class Buscador(private val entrada: Scanner) {
 
     fun exibirCepsBuscados() {
         println("\nCEPs válidos buscados:")
-        listaCeps.forEach {
+        
+        listaCeps.distinct().forEach {
             println("${it.cep}")
         }
     }

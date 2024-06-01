@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eaca9eef-9d7c-44c7-853d-cffb16c7e4de" name="Changes" comment="readme adicionado">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/buscadorcep/servicos/ExtensionFunctions.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/buscadorcep/principal/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/buscadorcep/principal/Main.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/buscadorcep/servicos/Buscador.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/buscadorcep/servicos/Buscador.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +24,7 @@
       <list>
         <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
